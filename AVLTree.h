@@ -1,3 +1,4 @@
+#pragma once
 #include "TreeNode.h"
 #include <chrono>
 #include <string>

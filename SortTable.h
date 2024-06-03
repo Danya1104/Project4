@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 #include <algorithm>
 #include "Hash.h"
@@ -8,7 +9,7 @@ public:
     SortTable(int N) : Table(N) {}
 
     void sort() {
-        sort(arr, arr + count, [](const Line& a, const Line& b) {
+        std::sort(arr, arr + count, [](const Line& a, const Line& b) {
             return a.key < b.key;
             });
     }

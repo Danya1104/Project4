@@ -1,6 +1,4 @@
-#include<iostream>
-#include"Line.h"    
-using namespace std;
+#pragma once
 class Table {
 protected:
     int MAX;
@@ -20,7 +18,7 @@ public:
         delete[] arr;
     }
 
-    int find(const string& key) {
+    int find(const std::string& key) {
         eff = 0;
         for (int i = 0; i < count; ++i) {
             eff++;
@@ -32,8 +30,9 @@ public:
         return -1;
     }
 
-    void insert(int value, const string& key) {
-        if (count < MAX) {
+    void insert(int value, const std::string& key) {
+        if (count < MAX)
+        {
             for (int i = 0; i < count; i++) {
                 if (arr[i].key == key) {
                     arr[i].value += value;
@@ -46,12 +45,12 @@ public:
 
         }
         else {
-            cout << "Просматриваемая/отсортированная таблица заполнена. Значение не будет сохранено." << endl;
+            std::cout << "Просматриваемая/отсортированная таблица заполнена. Значение не будет сохранено." << std::endl;
         }
 
     }
 
-    void remove(const string& key) {
+    void remove(const std::string& key) {
         for (int i = 0; i < count; ++i) {
             if (arr[i].key == key) {
                 // Shift elements to fill the gap
@@ -62,19 +61,17 @@ public:
                 return;
             }
         }
-        cout << "Значение не найдено." << endl;
+        std::cout << "Значение не найдено." << std::endl;
     }
     void print() {
-        cout << "Просматриваемая таблица на массиве: " << endl;
+        std::cout << "Просматриваемая таблица на массиве: " << std::endl;
         for (int i = 0; i < count; ++i) {
-            cout << arr[i].key << "\t\t" << arr[i].value << endl;
+            std::cout << arr[i].key << "\t\t" << arr[i].value << std::endl;
         }
-        cout << "\n";
+        std::cout << "\n";
     }
 
     void printEfficiency() {
-        cout << "Эффективность на массиве: " << eff << endl;
+        std::cout << "Эффективность на массиве: " << eff << std::endl;
     }
-
-    Table() = default;
 };
